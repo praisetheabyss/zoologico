@@ -15,6 +15,7 @@ def crud(request):
     animais_list = Animais.objects.all()
     return render(request, 'crud.html', {'animais_list': animais_list})
 
+@login_required
 def criarAnimais(request):
     data = {}
     form = AnimalForm(request.POST or None)
@@ -26,6 +27,7 @@ def criarAnimais(request):
     data['form'] = form
     return render(request, 'crud/criar.html', data)
 
+@login_required
 def editarAnimais(request, id):
     animal = Animais.objects.get(pk=id)
     form = AnimalForm(request.POST or None, instance=animal)
@@ -38,6 +40,7 @@ def editarAnimais(request, id):
     data['form'] = form
     return render(request, 'crud/criar.html', data)
 
+@login_required
 def excluirAnimais(request, id):
     animal = Animais.objects.get(pk=id)
     animal.delete()
