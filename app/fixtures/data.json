@@ -1,0 +1,128 @@
+[
+    {
+        "model": "app.Sexo",
+        "pk": 1,
+        "fields": {
+          "sexo": "Fêmea"
+        }
+      },
+      {
+        "model": "app.Sexo",
+        "pk": 2,
+        "fields": {
+          "sexo": "Macho"
+        }
+      },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 1,
+      "fields": {
+        "especie": "Pinguim"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 2,
+      "fields": {
+        "especie": "Cavalo"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 3,
+      "fields": {
+        "especie": "Tigre"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 4,
+      "fields": {
+        "especie": "Onça"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 5,
+      "fields": {
+        "especie": "Macaco"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 6,
+      "fields": {
+        "especie": "Elefante"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 7,
+      "fields": {
+        "especie": "Chimpanzé"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 8,
+      "fields": {
+        "especie": "Capivara"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 9,
+      "fields": {
+        "especie": "Jacaré"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 10,
+      "fields": {
+        "especie": "Leão-marinho"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 11,
+      "fields": {
+        "especie": "Hipopótamo"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 12,
+      "fields": {
+        "especie": "Girafa"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 13,
+      "fields": {
+        "especie": "Zebra"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 14,
+      "fields": {
+        "especie": "Leão"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 15,
+      "fields": {
+        "especie": "Arara-azul"
+      }
+    },
+    {
+      "model": "app.EspeciesAnimais",
+      "pk": 16,
+      "fields": {
+        "especie": "Camaleão"
+      }
+    }
+  ]

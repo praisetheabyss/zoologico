@@ -1,0 +1,70 @@
+{% extends 'layouts/master.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div id="app">
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    {% if request.path == '/criar/' %}
+                    <h3 class="text-primary">Adicionar animal</h3>
+                    <p class="text-subtitle text-muted">Adição de animal para o banco de dados do Zooloógico</p>
+                    {% else %}
+                    <h3 class="text-primary">Editar animal</h3>
+                    <p class="text-subtitle text-muted">Edição de animal já presente no banco de dados do Zooloógico</p>
+                    {% endif %}
+
+                    
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Principal</a></li>
+                            <li class="breadcrumb-item"><a href="/consulta/">CRUD</a></li>
+                            {% if request.path == '/criar/' %}
+                            <li class="breadcrumb-item active" aria-current="page">Adicionar animal</li>
+                            {% else %}
+                            <li class="breadcrumb-item active" aria-current="page">Editar animal</li>
+                            {% endif %}
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <section class="section">
+            <div class="card">
+                <div class="card-header">
+                    {% if request.path == '/criar/' %}
+                    Adicione o animal
+                    {% else %}
+                    Edite o animal
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <form method="POST" >
+                        {% csrf_token %}
+                    
+                        <label for="nome">Nome:</label>
+                        {% render_field form.nome type='text' class="form-control form-control-xl" placeholder="Digite o nome do animal" %}
+                        <label for="especie">Espécie:</label>
+                        {% render_field form.animal type='select' class="form-control form-control-xl" placeholder="Selecione a espécie do animal" %}
+                        <label for="sexo">Sexo:</label>
+                        {% render_field form.sexo type='select' class="form-control form-control-xl" placeholder="Selecione o sexo do animal" %}
+                        <label for="idade">Idade:</label>
+                        {% render_field form.idade type='number' class="form-control form-control-xl" placeholder="Digite a idade do animal" %}
+                    
+                    
+                    
+                    
+                        <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+                    </form>
+                    
+                   
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>
+
+{% endblock %}

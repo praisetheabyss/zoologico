@@ -1,0 +1,106 @@
+{% extends 'layouts/master.html' %}
+
+{% block content %}
+
+<div id="app">
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3 class="text-primary">Resultado da consulta</h3>
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Principal</a></li>
+                            <li class="breadcrumb-item"><a href="/consulta/">Consulta</a></li>
+
+                            <li class="breadcrumb-item active" aria-current="page">Resultado</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <section class="section">
+            <div class="card">
+                <div class="card-header">
+                    Resultado
+                </div>
+                <div class="card-body">
+
+                    <form action="{% url 'resultado_da_consulta' %}" method="GET" class="d-flex mb-3">
+                        {% csrf_token %}
+                        <input type="text" class="form-control w-25" id="basicInput" name="q" placeholder="Procurar...">
+                        <button type="submit" class="btn btn-primary ms-2">Buscar</button>
+                    </form>
+                    <h3 class="text-primary">Mostrando resultados de: {{ query }}</h3>
+                    {% if object_list %}
+                    
+                    <table class="table table-striped" id="table1">
+                        
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Especie</th>
+                                <th>Sexo</th>
+                                <th>Idade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for animal in object_list %}
+                            <tr>
+                                <td>{{ animal.nome }}</td>
+                                <td>{{ animal.animal }}</td>
+                                <td>{{ animal.sexo }}</td>
+                                <td>{{ animal.idade }}</td>
+                                
+                            </tr>
+                            {% endfor %}
+                            
+                        </tbody>
+                    </table>
+                    {% if is_paginated %}
+                        <ul class="pagination mt-5">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                            </li>
+                        {% else %}
+                            <li class="disabled page-item">
+                                <span class="page-link">&laquo;</span>
+                            </li>
+                        {% endif %}
+                    {% for i in paginator.page_range %}
+                        {% if page_obj.number == i %}
+                            <li class="page-item active " aria-current="page">
+                                <a class="page-link">{{ i }} <span class="sr-only">(current)</span></a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="disabled page-item">
+                            <span class="page-link">&raquo;</span>
+                        </li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+                {% else %}
+                    <h6>Sem resultados correspondentes</h6>
+                {% endif %}
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>
+
+{% endblock %}
+

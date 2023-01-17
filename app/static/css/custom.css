@@ -1,0 +1,15 @@
+body {
+    /* background-color: #dcdcdc; */
+}
+.card, .card-header{
+    /* background: #b49484; */
+    /* color: #dfdfdf; */
+}
+
+.sidebar-wrapper {
+    background-color: #FFF2DE;
+}
+
+#auth-right {
+    background-image: url("{% static 'images/bg/4853433.jpg' %}"),linear-gradient(90deg,#b49484,#FFF2DE)
+}

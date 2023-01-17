@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} Zoológico {{ web_title }}</title>
+    {% block stylesfirst %}{% endblock %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    {% block styles %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'vendors/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.svg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static '/images/logo/logo1.png' %}">
+    
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo ">
+                            <a href="/" class="d-flex"><img src="{% static 'images/logo/logo1.png' %}" alt="Logo" srcset=""><h6 class="ms-2 text-primary">Zoológico</h6></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title text-primary">Menu</li>
+                        {% if request.get_full_path == "/" %}
+                        <li class="sidebar-item active">
+                            <a href="/" class='sidebar-link '>
+                                <i class="bi bi-cloud"></i>
+                                <span>Principal</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="sidebar-item text-primary">
+                            <a href="/" class='sidebar-link'>
+                                <i class="bi bi-cloud text-primary"></i>
+                                <span class="text-primary">Principal</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if request.get_full_path == "/crud/" %}
+                        <li class="sidebar-item active ">
+                            <a href="/crud/" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>CRUD</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="sidebar-item ">
+                            <a href="/crud/" class='sidebar-link'>
+                                <i class="bi bi-grid-fill text-primary"></i>
+                                <span class="text-primary">CRUD</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if request.get_full_path == "/consulta/" %}
+                        <li class="sidebar-item active ">
+                            <a href="/consulta" class='sidebar-link'>
+                                <i class="bi bi-search"></i>
+                                <span >Consulta</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="sidebar-item ">
+                            <a href="/consulta" class='sidebar-link'>
+                                <i class="bi bi-search text-primary"></i>
+                                <span class="text-primary">Consulta</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if request.get_full_path == "/listagem/" %}
+                        <li class="sidebar-item active ">
+                            <a href="/listagem" class='sidebar-link'>
+                                <i class="bi bi-list"></i>
+                                <span>Listagem</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="sidebar-item ">
+                            <a href="/listagem" class='sidebar-link'>
+                                <i class="bi bi-list text-primary"></i>
+                                <span class="text-primary">Listagem</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if request.get_full_path == "/sobre/" %}
+                        <li class="sidebar-item active ">
+                            <a href="/sobre/" class='sidebar-link'>
+                                <i class="bi bi-info-circle-fill"></i>
+                                <span >Sobre</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="sidebar-item ">
+                            <a href="/sobre/" class='sidebar-link'>
+                                <i class="bi bi-info-circle-fill text-primary"></i>
+                                <span class="text-primary">Sobre</span>
+                            </a>
+                        </li>
+                        {% endif %}
+
+
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            {% block content %}
+            {% endblock %}
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2022 &copy; IFRN</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+                                href="http://ahmadsaugi.com">Maria Rita</a> e <a href="http://ahmadsaugi.com">Diana Rodrigues</a></p>
+                    </div>
+                </div>
+            </footer>
+
+            <script src="{% static 'perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+            <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+            {% block js %}{% endblock %}
+            <script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+
+
+</html>

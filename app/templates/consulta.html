@@ -1,0 +1,39 @@
+{% extends 'layouts/master.html' %}
+{% block content %}
+<div id="app">
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3 class="text-primary">Consulta</h3>
+                    <p class="text-subtitle text-muted">Consulta a partir dos nomes dos animais presentes no banco de dados do Zooloógico</p>
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Principal</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Consulta</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <section class="section">
+            <div class="card">
+                <div class="card-header">
+                    Consultar animais do Zooloógico
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'resultado_da_consulta' %}" method="GET" class="d-flex">
+                        {% csrf_token %}
+                        <input type="text" class="form-control w-25" id="basicInput" name="q" placeholder="Procurar...">
+                        <button type="submit" class="btn btn-primary ms-2">Buscar</button>
+
+                    </form>
+                    
+                </div>
+            </div>
+
+        </section>
+    </div>
+{% endblock %}
